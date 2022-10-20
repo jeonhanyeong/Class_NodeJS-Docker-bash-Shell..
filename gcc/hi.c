@@ -1,5 +1,5 @@
 #include <stdio.h>
 
 void hi(){
-  printf("linew world~~\n");
+  printf("LINUX world~~\n");
 }
