@@ -1,12 +1,10 @@
 #include <stdio.h>
 
-void main() {
-	int n;
+string eod(int input) {
 	printf("Input num : ");
 	scanf("%d", &n);
-	if( n % 2 == 0)
-		printf("%d is even number~!!\n", n);
-	else	
-		printf("%d is odd number~!!\n", n);
+	if( input % 2 == 0)
+		return "even number";
+	else
+		return "odd number";
 }
-
