@@ -1,16 +1,15 @@
 # anew
 gcc/lib/libmy.
 
-
 # environment files
 .env
-
 
 # nodejs node_modules
 node/**/node_modules
 
-
-
-# mongodb backup
+# mongodb backup    / json
 mongodb/**/*.json
 mongodb/backup
+
+# python venv
+python/**/.venv
