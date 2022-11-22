@@ -1,13 +1,12 @@
-const express = require('express');
-const app = express.Router();
-const fs = require('fs');
-const view = require("../views/index.html");
+const express    = require('express');
+const app        = express.Router();
+const bodyParser = require('body-parser');
+const fs         = require('fs');
+const path       = require('path');
 
-app.get("/", function (req, res){
-	fs.readFile("../views/index.html", "utf8", function (err,data) {
-		res.end(data);
-		console.log(data);
-	})
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(express.json());
+app.use(express.urlencoded({extended : true}));
 
 module.exports = app;

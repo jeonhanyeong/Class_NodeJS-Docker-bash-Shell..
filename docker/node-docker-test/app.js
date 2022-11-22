@@ -1,11 +1,22 @@
-'use strict'
-
-const express = require("express");
-const PORT = 8000;
-const HOST = '0.0.0.0';
+const express = require('express');
+const path = require('path');
 const app = express();
-const routes = require("./routes/");
-app.use(routes);
+const bodyParser = require('body-parser');
+const router = express.Router();
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.set('port', 8000)
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'views')));
+
+//routes setup
+var main = require('./routes/main.js');
+app.use('/', main);
+
+app.listen(app.get('port'), () =>{
+	console.log('8000 Port : 서버 실행 중')
+});
