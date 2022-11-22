@@ -5,8 +5,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 
-COPY ./routes/main.js ./
+ADD https://github.com/jeonhanyeong/anew/tree/main/docker/node-docker-test/app.js ./
 
 EXPOSE 8000
 
-CMD ["node","./routes/main.js"]
+CMD ["node","app.js"]
