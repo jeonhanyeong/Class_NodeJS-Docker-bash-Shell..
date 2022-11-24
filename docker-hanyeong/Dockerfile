@@ -5,7 +5,7 @@ FROM node:16
 WORKDIR /usr/src/app
 
 # Step 3
-RUN git clone https://github.com/jeonhanyeong/anew/docker/docker-hanyeong
+RUN git clone https://github.com/jeonhanyeong/anew/tree/main/docker-hanyeong
 WORKDIR docker-hanyeong
 
 RUN npm install
