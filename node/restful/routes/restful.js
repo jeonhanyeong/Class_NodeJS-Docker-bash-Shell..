@@ -1,5 +1,8 @@
 const express = require("express");
 const bodyParser = require('body-parser');
+const axios = require("axios");
+const CircularJSON = require("circular-json");
+const request = require("request");
 
 const app = express();
 
@@ -8,15 +11,16 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
-const users = [
-  { id:1, name: "User1"},
-  { id:2, name: "User2"},
-  { id:3, name: "User3"}
-];
+let urls = "";
+
 
 // simple api
 app.get("/Hello", (req, res) => {
-  res.send("Hello World!!");
+  urls = "http://3.36.225.231:3000/Hello";
+  request(urls, { json: true}, (err, result, body) => {
+      if (err) { return console.log(err); }
+      res.send(CircularJSON.stringify(body))
+  })
 });
 
 // request param X, response O
